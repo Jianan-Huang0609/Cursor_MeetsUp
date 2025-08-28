@@ -6,6 +6,14 @@ interface PhotoGalleryProps {
 }
 
 export default function PhotoGallery({ albums }: PhotoGalleryProps) {
+  // 构建正确的图片 URL
+  const getImageUrl = (imagePath: string) => {
+    if (imagePath.startsWith('http')) {
+      return imagePath; // 外部链接
+    }
+    // 相对路径，需要添加 base URL
+    return `${import.meta.env.BASE_URL}${imagePath}`;
+  };
   const [activeAlbum, setActiveAlbum] = useState(albums[0]?.id);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -37,7 +45,7 @@ export default function PhotoGallery({ albums }: PhotoGalleryProps) {
 
   // 打开图片预览
   const openPreview = (image: string, index: number) => {
-    setSelectedImage(image);
+    setSelectedImage(getImageUrl(image));
     setCurrentImageIndex(index);
   };
 
@@ -82,7 +90,7 @@ export default function PhotoGallery({ albums }: PhotoGalleryProps) {
             {image ? (
               <>
                 <img
-                  src={image}
+                  src={getImageUrl(image)}
                   alt={`照片 ${index + 1}`}
                   className="w-full h-full object-cover transition-transform
                            group-hover:scale-105"
@@ -109,7 +117,7 @@ export default function PhotoGallery({ albums }: PhotoGalleryProps) {
         >
           <div className="relative max-w-5xl w-full mx-4">
             <img
-              src={images[currentImageIndex]}
+              src={getImageUrl(images[currentImageIndex])}
               alt={`预览图片 ${currentImageIndex + 1}`}
               className="w-full h-auto max-h-[80vh] object-contain"
             />
