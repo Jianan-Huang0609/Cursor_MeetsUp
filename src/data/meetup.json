@@ -1,0 +1,183 @@
+{
+  "event": {
+    "title": "Cursor Meetup",
+    "date": "2025-08-16",
+    "place": "浦东软件园-2号楼",
+    "agenda": ["六位嘉宾分享（答疑）","抽奖与茶歇","开放麦+1min 投屏"]
+  },
+  "speakers": [
+    {
+      "id": "guest-1",
+      "name": "嘉宾A",
+      "role": "Cursor 资深使用者",
+      "summary": "从工程化角度谈 Cursor：挑战与实践",
+      "tags": ["工程化", "项目管理", "最佳实践"],
+      "talk": {
+        "one_liner": "大型项目中如何高效使用 Cursor",
+        "highlights": [
+          "建立了从Demo到产品的完整工程化流程",
+          "通过整合各种工具链提升效率",
+          "强调代码质量和规范性"
+        ],
+        "tips": [
+          "注重基础设施建设",
+          "推荐使用配套工具链",
+          "重视团队协作方式"
+        ]
+      },
+      "practice": [
+        "规范化的项目结构",
+        "完整的CI/CD流程",
+        "代码质量控制机制"
+      ],
+      "albumId": "album-guest-1"
+    },
+    {
+      "id": "guest-2",
+      "name": "嘉宾B",
+      "role": "AI应用架构师",
+      "summary": "探讨Cursor在企业环境中的应用",
+      "tags": ["企业应用", "架构设计", "团队协作"],
+      "talk": {
+        "one_liner": "如何在企业级项目中最大化利用Cursor的价值",
+        "highlights": [
+          "介绍了企业环境下的Cursor最佳实践",
+          "分享了大规模团队协作的经验",
+          "讨论了安全性和合规性问题"
+        ],
+        "tips": [
+          "建立团队共享的提示词库",
+          "制定统一的编码规范",
+          "重视代码审查流程"
+        ]
+      },
+      "practice": [
+        "搭建团队知识库",
+        "实现自动化工作流",
+        "建立代码复查机制"
+      ],
+      "albumId": "album-guest-2"
+    },
+    {
+      "id": "guest-3",
+      "name": "嘉宾C",
+      "role": "全栈开发专家",
+      "summary": "Cursor在全栈开发中的应用实践",
+      "tags": ["全栈开发", "效率提升", "最佳实践"],
+      "talk": {
+        "one_liner": "使用Cursor提升全栈开发效率的实践经验",
+        "highlights": [
+          "前后端协同开发的技巧",
+          "自动化测试的集成方案",
+          "性能优化的实践经验"
+        ],
+        "tips": [
+          "使用模板加速开发",
+          "建立组件库",
+          "自动化测试策略"
+        ]
+      },
+      "practice": [
+        "标准化开发流程",
+        "自动化测试实践",
+        "性能监控方案"
+      ],
+      "albumId": "album-guest-3"
+    },
+    {
+      "id": "guest-4",
+      "name": "嘉宾D",
+      "role": "DevOps专家",
+      "summary": "Cursor在DevOps流程中的应用",
+      "tags": ["DevOps", "自动化", "持续集成"],
+      "talk": {
+        "one_liner": "整合Cursor到现代DevOps工作流",
+        "highlights": [
+          "自动化部署流程的设计",
+          "监控和告警系统的集成",
+          "持续集成与交付实践"
+        ],
+        "tips": [
+          "自动化脚本管理",
+          "监控指标设置",
+          "应急响应流程"
+        ]
+      },
+      "practice": [
+        "完整的CI/CD流水线",
+        "自动化运维工具",
+        "系统监控方案"
+      ],
+      "albumId": "album-guest-4"
+    },
+    {
+      "id": "guest-5",
+      "name": "嘉宾E",
+      "role": "AI产品经理",
+      "summary": "Cursor产品发展方向与未来展望",
+      "tags": ["产品规划", "AI发展", "未来趋势"],
+      "talk": {
+        "one_liner": "探讨Cursor的发展方向及其在AI开发中的重要性",
+        "highlights": [
+          "产品路线图解析",
+          "AI开发趋势分析",
+          "未来功能展望"
+        ],
+        "tips": [
+          "关注产品更新",
+          "参与社区讨论",
+          "提供反馈建议"
+        ]
+      },
+      "practice": [
+        "建立产品反馈机制",
+        "追踪最新特性",
+        "社区贡献计划"
+      ],
+      "albumId": "album-guest-5"
+    }
+  ],
+  "albums": [
+    { 
+      "id": "album-guest-1", 
+      "title": "嘉宾1", 
+      "images": [
+        "/assets/guest-1/屏幕截图 2025-08-27 112059.png"
+      ]
+    },
+    { 
+      "id": "album-guest-2", 
+      "title": "嘉宾2", 
+      "images": [
+        "/assets/guest-2/屏幕截图 2025-08-27 112142.png",
+        "/assets/guest-2/屏幕截图 2025-08-27 112216.png",
+        "/assets/guest-2/屏幕截图 2025-08-27 112339.png",
+        "/assets/guest-2/屏幕截图 2025-08-27 123823.png"
+      ]
+    },
+    { 
+      "id": "album-guest-3", 
+      "title": "嘉宾3", 
+      "images": [
+        "/assets/guest-3/屏幕截图 2025-08-27 112448.png",
+        "/assets/guest-3/屏幕截图 2025-08-27 123915.png"
+      ]
+    },
+    { 
+      "id": "album-guest-4", 
+      "title": "嘉宾4", 
+      "images": [
+        "/assets/guest-4/屏幕截图 2025-08-27 124013.png",
+        "/assets/guest-4/屏幕截图 2025-08-27 124048.png",
+        "/assets/guest-4/屏幕截图 2025-08-27 125208.png"
+      ]
+    },
+    { 
+      "id": "album-guest-5", 
+      "title": "嘉宾5", 
+      "images": [
+        "/assets/guest-5/屏幕截图 2025-08-27 125248.png"
+      ]
+    }
+  ]
+}
