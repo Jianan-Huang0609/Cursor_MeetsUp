@@ -1,17 +1,56 @@
+import { useState } from 'react'
+import './App.css'
+import HeaderChips from './components/HeaderChips'
+import SidebarTimeline from './components/SidebarTimeline'
+import TalkCards from './components/TalkCards'
+import PracticeBoard from './components/PracticeBoard'
+import PhotoGallery from './components/PhotoGallery'
+import meetupData from './data/meetup.json'
+
 function App() {
+  const [selectedSpeaker, setSelectedSpeaker] = useState<string | null>(null)
+
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-      <h1 style={{ color: 'blue' }}>🎉 Cursor Meetup 测试页面</h1>
-      <p>如果你能看到这个页面，说明 React 应用正常启动！</p>
-      <p>当前时间: {new Date().toLocaleString()}</p>
-      <div style={{ marginTop: '20px', padding: '10px', backgroundColor: '#f0f0f0' }}>
-        <h3>测试信息：</h3>
-        <ul>
-          <li>✅ React 应用正常启动</li>
-          <li>✅ JavaScript 正常执行</li>
-          <li>✅ 页面渲染成功</li>
-        </ul>
-      </div>
+    <div className="min-h-screen bg-gray-50">
+      <header className="bg-white shadow-sm">
+        <div className="container mx-auto px-4 py-4">
+          <h1 className="text-2xl font-bold text-gray-900">Cursor Meetup</h1>
+          <HeaderChips 
+            speakers={meetupData.speakers}
+            onSelect={setSelectedSpeaker}
+            selected={selectedSpeaker}
+          />
+        </div>
+      </header>
+      
+      <main className="container mx-auto px-4 py-8">
+        <div className="flex gap-6">
+          <aside className="w-48 flex-shrink-0">
+            <SidebarTimeline 
+              speakers={meetupData.speakers}
+              selected={selectedSpeaker}
+              onSelect={setSelectedSpeaker}
+            />
+          </aside>
+          
+          <div className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <TalkCards 
+              speakers={meetupData.speakers}
+              selectedSpeaker={selectedSpeaker}
+            />
+            <PracticeBoard 
+              speakers={meetupData.speakers}
+              selectedSpeaker={selectedSpeaker}
+            />
+          </div>
+        </div>
+      </main>
+
+      <footer className="mt-12 bg-white border-t">
+        <div className="container mx-auto px-4 py-8">
+          <PhotoGallery albums={meetupData.albums} />
+        </div>
+      </footer>
     </div>
   )
 }

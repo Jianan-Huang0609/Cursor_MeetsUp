@@ -8,131 +8,121 @@
   "speakers": [
     {
       "id": "guest-1",
-      "name": "嘉宾A",
-      "role": "Cursor 资深使用者",
-      "summary": "从工程化角度谈 Cursor：挑战与实践",
-      "tags": ["工程化", "项目管理", "最佳实践"],
+      "name": "Kiro",
+      "role": "AWS 产品经理",
+      "summary": "Cursor 擅长单节点任务；长开发与难项目需按软件全生命周期优化执行。",
+      "tags": ["软件生命周期","版本管理","团队协作"],
       "talk": {
-        "one_liner": "大型项目中如何高效使用 Cursor",
+        "one_liner": "以 SDLC 管理 Cursor 项目：需求→架构→开发→测试→发布→版本→维护",
         "highlights": [
-          "建立了从Demo到产品的完整工程化流程",
-          "通过整合各种工具链提升效率",
-          "强调代码质量和规范性"
+          "用 chatbox 多轮澄清需求与坑位",
+          "版本更新入库为记忆，打标签并 push 到 Git",
+          "子模块 MVP + 分步测试 + 版本管理"
         ],
         "tips": [
-          "注重基础设施建设",
-          "推荐使用配套工具链",
-          "重视团队协作方式"
+          "将大版本更新转成 Cursor 可用的记忆块",
+          "定期交流/组队编程，复用函数"
         ]
       },
       "practice": [
-        "规范化的项目结构",
-        "完整的CI/CD流程",
-        "代码质量控制机制"
+        "为每个模块建立可回滚的版本记忆",
+        "先顶层框架→分模块→测试用例→再合并"
       ],
       "albumId": "album-guest-1"
     },
     {
       "id": "guest-2",
-      "name": "嘉宾B",
-      "role": "AI应用架构师",
-      "summary": "探讨Cursor在企业环境中的应用",
-      "tags": ["企业应用", "架构设计", "团队协作"],
+      "name": "湾区程序员回归",
+      "role": "AI 解决方案创始人",
+      "summary": "以工程化与业务结合的视角给出大量 VB 建议；强调 V0 / Bolt 与 Cursor IDE 的组合以降低沟通成本。",
+      "tags": ["工程化","业务结合","VB建议"],
       "talk": {
-        "one_liner": "如何在企业级项目中最大化利用Cursor的价值",
+        "one_liner": "把需求定义成 Swagger 先生成后端框架→让 Cursor 读取生成 cursor.rules",
         "highlights": [
-          "介绍了企业环境下的Cursor最佳实践",
-          "分享了大规模团队协作的经验",
-          "讨论了安全性和合规性问题"
+          "分模块完成 + 先用测试文件验收后再封装",
+          "提前规划可复用函数",
+          "先顶层需求框架→分步测试→技术栈选择→模块封装→部署与版本管理"
         ],
         "tips": [
-          "建立团队共享的提示词库",
-          "制定统一的编码规范",
-          "重视代码审查流程"
+          "rules 很重要",
+          "建立 Swagger→后端框架→rules 的流水线"
         ]
       },
       "practice": [
-        "搭建团队知识库",
-        "实现自动化工作流",
-        "建立代码复查机制"
+        "在 RA 工具链里建立 Swagger→后端框架→rules 的流水线",
+        "把复用函数沉淀到工具库"
       ],
       "albumId": "album-guest-2"
     },
     {
       "id": "guest-3",
-      "name": "嘉宾C",
-      "role": "全栈开发专家",
-      "summary": "Cursor在全栈开发中的应用实践",
-      "tags": ["全栈开发", "效率提升", "最佳实践"],
+      "name": "全栈哥",
+      "role": "小红书：来点AI",
+      "summary": "系统讲解了 Cursor Memories 的机制与魔改建议；支持个人能力偏好 + 项目进度记忆。",
+      "tags": ["Cursor Memories","记忆机制","云端共享"],
       "talk": {
-        "one_liner": "使用Cursor提升全栈开发效率的实践经验",
+        "one_liner": "记忆来自用户主动要求 + AI 后台观察；建议把记忆云端共享给团队",
         "highlights": [
-          "前后端协同开发的技巧",
-          "自动化测试的集成方案",
-          "性能优化的实践经验"
+          "结合 Git 记录大小版本",
+          "在 GPT-5 子项目 setting 中固化个人项目与问题方向",
+          "让后续新知识点贴合你的主线"
         ],
         "tips": [
-          "使用模板加速开发",
-          "建立组件库",
-          "自动化测试策略"
+          "把RAifry / 全栈工具箱 / 旅行站点等主项目设为长期记忆域",
+          "版本更新写入 rules 便于回滚"
         ]
       },
       "practice": [
-        "标准化开发流程",
-        "自动化测试实践",
-        "性能监控方案"
+        "把RAifry / 全栈工具箱 / 旅行站点等主项目设为长期记忆域",
+        "版本更新写入 rules 便于回滚"
       ],
       "albumId": "album-guest-3"
     },
     {
       "id": "guest-4",
-      "name": "嘉宾D",
-      "role": "DevOps专家",
-      "summary": "Cursor在DevOps流程中的应用",
-      "tags": ["DevOps", "自动化", "持续集成"],
+      "name": "孟健",
+      "role": "MCP 爱好者，全栈全周期",
+      "summary": "建议以 Discover-Design-Build-Deploy-Support&Scale 的全生命周期方法管理 Cursor 项目；MCP 能打通多数据源与工具。",
+      "tags": ["MCP","全生命周期","数据源"],
       "talk": {
-        "one_liner": "整合Cursor到现代DevOps工作流",
+        "one_liner": "推荐飞书 MCP / MCP Hub；实践包括 Files 新建、GitHub 访问、Push/Pull、Browser MCP",
         "highlights": [
-          "自动化部署流程的设计",
-          "监控和告警系统的集成",
-          "持续集成与交付实践"
+          "把飞书文档/知识库接入 MCP",
+          "建立标准化的 PR / Review / 发布流程",
+          "Discover-Design-Build-Deploy-Support&Scale 方法"
         ],
         "tips": [
-          "自动化脚本管理",
-          "监控指标设置",
-          "应急响应流程"
+          "把飞书文档/知识库接入 MCP",
+          "建立标准化的 PR / Review / 发布流程"
         ]
       },
       "practice": [
-        "完整的CI/CD流水线",
-        "自动化运维工具",
-        "系统监控方案"
+        "把飞书文档/知识库接入 MCP",
+        "建立标准化的 PR / Review / 发布流程"
       ],
       "albumId": "album-guest-4"
     },
     {
       "id": "guest-5",
-      "name": "嘉宾E",
-      "role": "AI产品经理",
-      "summary": "Cursor产品发展方向与未来展望",
-      "tags": ["产品规划", "AI发展", "未来趋势"],
+      "name": "Tina Huang",
+      "role": "Refiy 创始人",
+      "summary": "此刻是最好的创业时代；信息差与效率可被 AI 拉平；当实现边界趋近于 0，品味为王。",
+      "tags": ["创业时代","AI效率","品味为王"],
       "talk": {
-        "one_liner": "探讨Cursor的发展方向及其在AI开发中的重要性",
+        "one_liner": "个人影响力与背书、品味、执行力是关键",
         "highlights": [
-          "产品路线图解析",
-          "AI开发趋势分析",
-          "未来功能展望"
+          "把审美/品味显式化",
+          "建立 UI 评审清单与示例库",
+          "优选 shadcn/ui + 业界优秀案例"
         ],
         "tips": [
-          "关注产品更新",
-          "参与社区讨论",
-          "提供反馈建议"
+          "把审美/品味显式化：建立 UI 评审清单与示例库",
+          "优选 shadcn/ui + 业界优秀案例"
         ]
       },
       "practice": [
-        "建立产品反馈机制",
-        "追踪最新特性",
-        "社区贡献计划"
+        "把审美/品味显式化：建立 UI 评审清单与示例库",
+        "优选 shadcn/ui + 业界优秀案例"
       ],
       "albumId": "album-guest-5"
     }
@@ -140,14 +130,14 @@
   "albums": [
     { 
       "id": "album-guest-1", 
-      "title": "嘉宾1", 
+      "title": "Kiro", 
       "images": [
         "assets/guest-1/屏幕截图 2025-08-27 112059.png"
       ]
     },
     { 
       "id": "album-guest-2", 
-      "title": "嘉宾2", 
+      "title": "湾区程序员回归", 
       "images": [
         "assets/guest-2/屏幕截图 2025-08-27 112142.png",
         "assets/guest-2/屏幕截图 2025-08-27 112216.png",
@@ -157,7 +147,7 @@
     },
     { 
       "id": "album-guest-3", 
-      "title": "嘉宾3", 
+      "title": "全栈哥", 
       "images": [
         "assets/guest-3/屏幕截图 2025-08-27 112448.png",
         "assets/guest-3/屏幕截图 2025-08-27 123915.png"
@@ -165,7 +155,7 @@
     },
     { 
       "id": "album-guest-4", 
-      "title": "嘉宾4", 
+      "title": "孟健", 
       "images": [
         "assets/guest-4/屏幕截图 2025-08-27 124013.png",
         "assets/guest-4/屏幕截图 2025-08-27 124048.png",
@@ -174,7 +164,7 @@
     },
     { 
       "id": "album-guest-5", 
-      "title": "嘉宾5", 
+      "title": "Tina Huang", 
       "images": [
         "assets/guest-5/屏幕截图 2025-08-27 125248.png"
       ]
