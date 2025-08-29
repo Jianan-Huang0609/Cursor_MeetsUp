@@ -36,68 +36,82 @@ export default function TalkCards({ speakers, selectedSpeaker }: TalkCardsProps)
   }, [currentPage, totalPages]);
 
   return (
-    <div className="space-y-6">
-      <div className="space-y-6">
-        {paginatedSpeakers.map((speaker) => (
-          <div
-            key={speaker.id}
-            className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 
-                     transition-all duration-300 hover:shadow-md"
-          >
-            <div className="space-y-4">
-              <div className="flex justify-between items-start">
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900">
-                    {speaker.name}
-                  </h3>
-                  <p className="text-sm text-gray-500">{speaker.role}</p>
+    <div className="space-y-8">
+          <div>
+            {paginatedSpeakers.map((speaker) => (
+              <div
+                key={speaker.id}
+              >
+                {/* 头部信息 */}
+                <div className="mb-6">
+                  <div className="flex items-center gap-4">
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold text-gray-900">
+                        {speaker.name}
+                      </h3>
+                      <p className="text-gray-500 mt-1">{speaker.role}</p>
+                    </div>
+                    <div className="flex gap-2">
+                      {speaker.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1 text-sm font-medium text-blue-600 
+                                   bg-blue-50 rounded-lg"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-                <div className="flex gap-2">
-                  {speaker.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-1 text-xs font-medium bg-gray-100 
-                               text-gray-700 rounded"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                
+                {/* 主要内容 */}
+                <div className="p-8">
+              {/* 一句话总结 */}
+              <div className="mb-8">
+                <h4 className="text-lg font-medium text-gray-900 mb-3">分享概要</h4>
+                <p className="text-gray-600 bg-gray-50 p-4 rounded-lg">{speaker.talk.one_liner}</p>
               </div>
               
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <p className="text-gray-700 italic">"{speaker.talk.one_liner}"</p>
-              </div>
-              
-              <div>
-                <h4 className="font-medium text-gray-900 mb-2 flex items-center">
-                  <span className="mr-2">关键观点</span>
-                  <span className="text-xs text-gray-500">
-                    ({speaker.talk.highlights.length}项)
+              {/* 关键观点 */}
+              <div className="mb-8">
+                <div className="flex items-center gap-3 mb-4">
+                  <h4 className="text-lg font-medium text-gray-900">关键观点</h4>
+                  <span className="px-2 py-0.5 text-sm text-gray-500 bg-gray-100 rounded-md">
+                    {speaker.talk.highlights.length} 项
                   </span>
-                </h4>
-                <ul className="list-disc list-inside space-y-2">
+                </div>
+                <ul className="space-y-4">
                   {speaker.talk.highlights.map((point, index) => (
-                    <li key={index} className="text-gray-700 hover:text-gray-900 
-                                             transition-colors">
-                      {point}
+                    <li key={index} className="flex items-baseline gap-3">
+                      <span className="flex-shrink-0 text-sm font-medium text-blue-600">
+                        {index + 1}.
+                      </span>
+                      <span className="text-gray-600">
+                        {point}
+                      </span>
                     </li>
                   ))}
                 </ul>
               </div>
               
+              {/* 实用技巧 */}
               <div>
-                <h4 className="font-medium text-gray-900 mb-2 flex items-center">
-                  <span className="mr-2">实用技巧</span>
-                  <span className="text-xs text-gray-500">
-                    ({speaker.talk.tips.length}项)
+                <div className="flex items-center gap-3 mb-4">
+                  <h4 className="text-lg font-medium text-gray-900">实用技巧</h4>
+                  <span className="px-2 py-0.5 text-sm text-gray-500 bg-gray-100 rounded-md">
+                    {speaker.talk.tips.length} 项
                   </span>
-                </h4>
-                <ul className="list-disc list-inside space-y-2">
+                </div>
+                <ul className="space-y-4">
                   {speaker.talk.tips.map((tip, index) => (
-                    <li key={index} className="text-gray-700 hover:text-gray-900 
-                                             transition-colors">
-                      {tip}
+                    <li key={index} className="flex items-baseline gap-3">
+                      <span className="flex-shrink-0 text-sm font-medium text-green-600">
+                        {index + 1}.
+                      </span>
+                      <span className="text-gray-600">
+                        {tip}
+                      </span>
                     </li>
                   ))}
                 </ul>

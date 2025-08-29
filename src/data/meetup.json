@@ -130,14 +130,16 @@
   "albums": [
     { 
       "id": "album-guest-1", 
-      "title": "Kiro", 
+      "title": "Kiro",
+      "speakerId": "guest-1", 
       "images": [
         "assets/guest-1/屏幕截图 2025-08-27 112059.png"
       ]
     },
     { 
       "id": "album-guest-2", 
-      "title": "湾区程序员回归", 
+      "title": "湾区程序员回归",
+      "speakerId": "guest-2", 
       "images": [
         "assets/guest-2/屏幕截图 2025-08-27 112142.png",
         "assets/guest-2/屏幕截图 2025-08-27 112216.png",
@@ -147,7 +149,8 @@
     },
     { 
       "id": "album-guest-3", 
-      "title": "全栈哥", 
+      "title": "全栈哥",
+      "speakerId": "guest-3", 
       "images": [
         "assets/guest-3/屏幕截图 2025-08-27 112448.png",
         "assets/guest-3/屏幕截图 2025-08-27 123915.png"
@@ -155,7 +158,8 @@
     },
     { 
       "id": "album-guest-4", 
-      "title": "孟健", 
+      "title": "孟健",
+      "speakerId": "guest-4", 
       "images": [
         "assets/guest-4/屏幕截图 2025-08-27 124013.png",
         "assets/guest-4/屏幕截图 2025-08-27 124048.png",
@@ -164,7 +168,8 @@
     },
     { 
       "id": "album-guest-5", 
-      "title": "Tina Huang", 
+      "title": "Tina Huang",
+      "speakerId": "guest-5", 
       "images": [
         "assets/guest-5/屏幕截图 2025-08-27 125248.png"
       ]

@@ -17,6 +17,7 @@ export interface Album {
   id: string;
   title: string;
   images: string[];
+  speakerId: string;
 }
 
 export interface MeetupData {
