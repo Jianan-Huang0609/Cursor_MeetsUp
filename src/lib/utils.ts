@@ -7,7 +7,11 @@ export function getAssetUrl(path: string): string {
   const baseUrl = import.meta.env.BASE_URL;
   // 移除开头的斜杠，避免重复
   const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-  return `${baseUrl}${cleanPath}`;
+  
+  // 将 assets 路径转换为 images 路径
+  const updatedPath = cleanPath.replace(/^assets\//, 'images/');
+  
+  return `${baseUrl}${updatedPath}`;
 }
 
 /**
