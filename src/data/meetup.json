@@ -2,127 +2,92 @@
   "event": {
     "title": "Cursor Meetup",
     "date": "2025-08-16",
+    "time": "周六下午一点半开幕",
     "place": "浦东软件园-2号楼",
-    "agenda": ["六位嘉宾分享（答疑）","抽奖与茶歇","开放麦+1min 投屏"]
+    "agenda": ["六位嘉宾分享（提问答疑）","穿插抽奖和茶歇","观众开放麦+1min投屏产品介绍"]
   },
   "speakers": [
     {
       "id": "guest-1",
       "name": "Kiro",
-      "role": "AWS 产品经理",
-      "summary": "Cursor 擅长单节点任务；长开发与难项目需按软件全生命周期优化执行。",
+      "role": "AWS产品经理",
+      "summary": "Cursor擅长单节点性任务，长开发与难项目需要用户以软件开发全生命周期管理的方式优化并执行。",
       "tags": ["软件生命周期","版本管理","团队协作"],
       "talk": {
-        "one_liner": "以 SDLC 管理 Cursor 项目：需求→架构→开发→测试→发布→版本→维护",
-        "highlights": [
-          "用 chatbox 多轮澄清需求与坑位",
-          "版本更新入库为记忆，打标签并 push 到 Git",
-          "子模块 MVP + 分步测试 + 版本管理"
-        ],
-        "tips": [
-          "将大版本更新转成 Cursor 可用的记忆块",
-          "定期交流/组队编程，复用函数"
-        ]
+        "one_liner": "结合软件开发流程关注VB项目的开发全生命周期管理：需求定义与规划→设计与架构：整体架构搭建、技术栈选择→开发与实现（我也喜欢组队编程+定期交流分享）：子模块MVP、分模块展开→测试质量与保障：测试与跑通；部署与发布→版本更新管理（git）--Tips：变成Cursor 记忆的形式→维护与迭代：吸收用户反馈后再升版本。"
       },
-      "practice": [
-        "为每个模块建立可回滚的版本记忆",
-        "先顶层框架→分模块→测试用例→再合并"
+      "personal_practice": [
+        "开发前：多轮直接和chatbox交互，明确需求、路径并识别到必要的踩坑点",
+        "版本更新的部分--Tips：变成Cursor 记忆的形式 （大版本更新都打上标签、说明更新内容、git push到仓库）"
+      ],
+      "personal_development": [
+        "集成了VB开发小项目的网页（目标是将周期管理和项目管理能力融入VB开发过程）"
       ],
       "albumId": "album-guest-1"
     },
     {
       "id": "guest-2",
       "name": "湾区程序员回归",
-      "role": "AI 解决方案创始人",
-      "summary": "以工程化与业务结合的视角给出大量 VB 建议；强调 V0 / Bolt 与 Cursor IDE 的组合以降低沟通成本。",
+      "role": "AI解决方案创始人",
+      "summary": "给出VB的很多建议，工程化视角与和业务端接触经验总结",
       "tags": ["工程化","业务结合","VB建议"],
       "talk": {
-        "one_liner": "把需求定义成 Swagger 先生成后端框架→让 Cursor 读取生成 cursor.rules",
-        "highlights": [
-          "分模块完成 + 先用测试文件验收后再封装",
-          "提前规划可复用函数",
-          "先顶层需求框架→分步测试→技术栈选择→模块封装→部署与版本管理"
-        ],
-        "tips": [
-          "rules 很重要",
-          "建立 Swagger→后端框架→rules 的流水线"
-        ]
+        "one_liner": "基于其沟通成本高、业务需求变化快的个人业务场景。V0、Bolt结合Cursor IDE开发平台使用。前者AI工程师与前端业务专家聊需求时能将原先3-4天的定义，捏合为半天的可视化沟通。推荐的工作流：需求定义好打包为Swagger来生成后端代码框架→让cursor读取代码框架生成cursor rules。VB Tips：rules很重要；分模块完成+先让cursor利用测试文件验证功能后 封装起来不动：先写顶层需求框架、写指令的模块功能、分步测试、选代码技术栈、测试模块、分装部署/版本管理；提前想好能够复用的函数。"
       },
-      "practice": [
-        "在 RA 工具链里建立 Swagger→后端框架→rules 的流水线",
-        "把复用函数沉淀到工具库"
+      "personal_practice": [],
+      "personal_development": [
+        "试用基于Aceternity UI，试用V0、Bolt、lovable。感受UI界面生成模拟速度+质量高，且可以和多款UI库联动、上传github很丝滑。进一步加快业务需求的可视化。",
+        "好产品=AI^(工程师+产品经理+业务专家)×(执行力+品味)⇒可衡量价值"
       ],
       "albumId": "album-guest-2"
     },
     {
       "id": "guest-3",
-      "name": "全栈哥",
-      "role": "小红书：来点AI",
-      "summary": "系统讲解了 Cursor Memories 的机制与魔改建议；支持个人能力偏好 + 项目进度记忆。",
+      "name": "全栈开发哥",
+      "role": "小红书账号\"来点AI\"",
+      "summary": "Cursor memeories非常重要，系统讲解了记忆的机制、生成、魔改建议",
       "tags": ["Cursor Memories","记忆机制","云端共享"],
       "talk": {
-        "one_liner": "记忆来自用户主动要求 + AI 后台观察；建议把记忆云端共享给团队",
-        "highlights": [
-          "结合 Git 记录大小版本",
-          "在 GPT-5 子项目 setting 中固化个人项目与问题方向",
-          "让后续新知识点贴合你的主线"
-        ],
-        "tips": [
-          "把RAifry / 全栈工具箱 / 旅行站点等主项目设为长期记忆域",
-          "版本更新写入 rules 便于回滚"
-        ]
+        "one_liner": "How ChatGPT memory works。观点：Cursor memeories生成机制来自-用户主动要求+后台自运行的来自AI的观察。→进一步可以将记忆云端上传，方便团队共享、编辑；指出记忆分成：个人研发能力、偏好+项目进度记忆。"
       },
-      "practice": [
-        "把RAifry / 全栈工具箱 / 旅行站点等主项目设为长期记忆域",
-        "版本更新写入 rules 便于回滚"
+      "personal_practice": [
+        "个人成长：将记忆也沿用到了GPT-5的子项目setting中。如个人开发板块：整理一下我过往问题的方向，把我的几个主要项目存成记忆，这样后续所有的新知识点（比如我问了关于UI库的问题），它会帮我往这个方向上面靠。",
+        "项目记忆：结合了版本管理的git使用，我增加了rules为主动记录大小版本每次更新的内容。方便直接调取回滚。"
       ],
+      "personal_development": [],
       "albumId": "album-guest-3"
     },
     {
       "id": "guest-4",
       "name": "孟健",
-      "role": "MCP 爱好者，全栈全周期",
-      "summary": "建议以 Discover-Design-Build-Deploy-Support&Scale 的全生命周期方法管理 Cursor 项目；MCP 能打通多数据源与工具。",
+      "role": "善用MCP、也是一个全栈全周期爱好者",
+      "summary": "用软件生命周期来管理cursor项目（需求分析、方案设计、代码实现、code review、功能发布）。",
       "tags": ["MCP","全生命周期","数据源"],
       "talk": {
-        "one_liner": "推荐飞书 MCP / MCP Hub；实践包括 Files 新建、GitHub 访问、Push/Pull、Browser MCP",
-        "highlights": [
-          "把飞书文档/知识库接入 MCP",
-          "建立标准化的 PR / Review / 发布流程",
-          "Discover-Design-Build-Deploy-Support&Scale 方法"
-        ],
-        "tips": [
-          "把飞书文档/知识库接入 MCP",
-          "建立标准化的 PR / Review / 发布流程"
-        ]
+        "one_liner": "观点：CC发布建议AI渗透全生命周期的开发。Discover-Design-Build-Deploy-Support&Scale。MCP推荐：飞书MCP、MCP Hub。"
       },
-      "practice": [
-        "把飞书文档/知识库接入 MCP",
-        "建立标准化的 PR / Review / 发布流程"
+      "personal_practice": [
+        "MCP: File的直接放心新建、Github的访问、push&Pull\\Browser MCP"
+      ],
+      "personal_development": [
+        "做了一个VB全生命周期ToDo的网站，旨在让VB helps VB"
       ],
       "albumId": "album-guest-4"
     },
     {
       "id": "guest-5",
       "name": "Tina Huang",
-      "role": "Refiy 创始人",
-      "summary": "此刻是最好的创业时代；信息差与效率可被 AI 拉平；当实现边界趋近于 0，品味为王。",
+      "role": "Refiy创始人（吃到第一波Cursor红利、爱用X 程序员出身的爱思考卷王）",
+      "summary": "此刻是最好的创业时代。",
       "tags": ["创业时代","AI效率","品味为王"],
       "talk": {
-        "one_liner": "个人影响力与背书、品味、执行力是关键",
-        "highlights": [
-          "把审美/品味显式化",
-          "建立 UI 评审清单与示例库",
-          "优选 shadcn/ui + 业界优秀案例"
-        ],
-        "tips": [
-          "把审美/品味显式化：建立 UI 评审清单与示例库",
-          "优选 shadcn/ui + 业界优秀案例"
-        ]
+        "one_liner": "观点：创业公司vs大厂：信息差和工作效率；这些能被善用AI最大程度拉平；观点：技术实现边界趋于0后，品味为王。"
       },
-      "practice": [
-        "把审美/品味显式化：建立 UI 评审清单与示例库",
-        "优选 shadcn/ui + 业界优秀案例"
+      "personal_practice": [
+        "个人观点：个人影响力（背书）、品味、执行力"
+      ],
+      "personal_development": [
+        "彻底打通X，积极互动"
       ],
       "albumId": "album-guest-5"
     }
@@ -133,7 +98,7 @@
       "title": "Kiro",
       "speakerId": "guest-1", 
       "images": [
-        "assets/guest-1/guest1-photo1.jpg"
+        "images/guest-1/guest1-photo1.jpg"
       ]
     },
     { 
@@ -141,10 +106,10 @@
       "title": "湾区程序员回归",
       "speakerId": "guest-2", 
       "images": [
-        "assets/guest-2/guest2-photo1.jpg",
-        "assets/guest-2/guest2-photo2.jpg",
-        "assets/guest-2/guest2-photo3.jpg",
-        "assets/guest-2/guest2-photo4.jpg"
+        "images/guest-2/屏幕截图 2025-08-27 112142.png",
+        "images/guest-2/屏幕截图 2025-08-27 112216.png",
+        "images/guest-2/屏幕截图 2025-08-27 112339.png",
+        "images/guest-2/屏幕截图 2025-08-27 123823.png"
       ]
     },
     { 
@@ -152,8 +117,8 @@
       "title": "全栈哥",
       "speakerId": "guest-3", 
       "images": [
-        "assets/guest-3/guest3-photo1.jpg",
-        "assets/guest-3/guest3-photo2.jpg"
+        "images/guest-3/屏幕截图 2025-08-27 112448.png",
+        "images/guest-3/屏幕截图 2025-08-27 123915.png"
       ]
     },
     { 
@@ -161,9 +126,9 @@
       "title": "孟健",
       "speakerId": "guest-4", 
       "images": [
-        "assets/guest-4/guest4-photo1.jpg",
-        "assets/guest-4/guest4-photo2.jpg",
-        "assets/guest-4/guest4-photo3.jpg"
+        "images/guest-4/屏幕截图 2025-08-27 124013.png",
+        "images/guest-4/屏幕截图 2025-08-27 124048.png",
+        "images/guest-4/屏幕截图 2025-08-27 125208.png"
       ]
     },
     { 
@@ -171,7 +136,7 @@
       "title": "Tina Huang",
       "speakerId": "guest-5", 
       "images": [
-        "assets/guest-5/guest5-photo1.jpg"
+        "images/guest-5/屏幕截图 2025-08-27 125248.png"
       ]
     }
   ]

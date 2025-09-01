@@ -6,10 +6,9 @@ export interface Speaker {
   tags: string[];
   talk: {
     one_liner: string;
-    highlights: string[];
-    tips: string[];
   };
-  practice: string[];
+  personal_practice: string[];
+  personal_development: string[];
   albumId: string;
 }
 
@@ -24,6 +23,7 @@ export interface MeetupData {
   event: {
     title: string;
     date: string;
+    time: string;
     place: string;
     agenda: string[];
   };
