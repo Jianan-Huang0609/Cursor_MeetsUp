@@ -243,7 +243,7 @@ export default function PhotoGallery({ albums, selectedSpeaker }: PhotoGalleryPr
           >
             <div className="relative max-w-4xl max-h-full">
               <img
-                src={getAssetUrl(selectedImage)}
+                src={getAssetUrl(images[currentImageIndex])}
                 alt="预览图片"
                 className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
                 onClick={(e) => e.stopPropagation()}
