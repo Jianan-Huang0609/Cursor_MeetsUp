@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy React App to GitHub Pages
 
 on:
   push:
@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -47,11 +47,14 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
         
-      - name: Build
+      - name: Build React App
         run: |
           pnpm run build
           echo "Build completed successfully"
+          echo "Build output:"
           ls -la dist/
+          echo "Index.html content preview:"
+          head -20 dist/index.html
           
       - name: Setup Pages
         uses: actions/configure-pages@v4
