@@ -41,71 +41,99 @@ export default function TalkCards({ speakers, selectedSpeaker }: TalkCardsProps)
     setCurrentPage(0);
   }, [selectedSpeaker]);
 
+  // 将详细分享内容转换为 bullet points
+  const parseTalkContent = (content: string) => {
+    // 按分号、句号、换行符分割内容
+    const points = content
+      .split(/[；。\n]/)
+      .map(point => point.trim())
+      .filter(point => point.length > 0);
+    
+    return points;
+  };
+
   return (
     <div className="space-y-6">
       <AnimatePresence mode="wait">
-        {paginatedSpeakers.map((speaker, index) => (
-          <motion.div
-            key={speaker.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, delay: index * 0.1 }}
-            className="space-y-6"
-          >
-            {/* 嘉宾信息头部 */}
-            <div className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 p-4 rounded-lg border border-cyan-500/20">
-              <div className="flex items-center justify-between">
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-gray-100 mb-1">
-                    {speaker.name}
-                  </h3>
-                  <p className="text-gray-400">{speaker.role}</p>
+        {paginatedSpeakers.map((speaker, index) => {
+          const talkPoints = parseTalkContent(speaker.talk.one_liner);
+          
+          return (
+            <motion.div
+              key={speaker.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, delay: index * 0.1 }}
+              className="space-y-6"
+            >
+              {/* 嘉宾信息头部 */}
+              <div className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 p-4 rounded-lg border border-cyan-500/20">
+                <div className="flex items-center justify-between">
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold text-gray-100 mb-1">
+                      {speaker.name}
+                    </h3>
+                    <p className="text-gray-400">{speaker.role}</p>
+                  </div>
+                  <div className="flex gap-2">
+                    {speaker.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 text-xs font-medium text-cyan-400 
+                                 bg-cyan-500/20 rounded-full border border-cyan-500/30"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <div className="flex gap-2">
-                  {speaker.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 text-xs font-medium text-cyan-400 
-                               bg-cyan-500/20 rounded-full border border-cyan-500/30"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-            
-            {/* 一句话总结 */}
-            <div className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 p-4 rounded-lg border border-cyan-500/20">
-              <h4 className="text-sm font-semibold text-cyan-400 mb-2 flex items-center">
-                <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                一句话总结
-              </h4>
-              <p className="text-gray-300 leading-relaxed">{speaker.summary}</p>
-            </div>
-            
-            {/* 详细分享内容 */}
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <h4 className="text-lg font-semibold text-gray-100 flex items-center">
-                  <svg className="w-5 h-5 mr-2 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                  </svg>
-                  详细分享
-                </h4>
               </div>
               
+              {/* 一句话总结 */}
               <div className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 p-4 rounded-lg border border-cyan-500/20">
-                <p className="text-gray-300 leading-relaxed whitespace-pre-line">
-                  {speaker.talk.one_liner}
-                </p>
+                <h4 className="text-sm font-semibold text-cyan-400 mb-2 flex items-center">
+                  <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  一句话总结
+                </h4>
+                <p className="text-gray-300 leading-relaxed">{speaker.summary}</p>
               </div>
-            </div>
-          </motion.div>
-        ))}
+              
+              {/* 详细分享内容 */}
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <h4 className="text-lg font-semibold text-gray-100 flex items-center">
+                    <svg className="w-5 h-5 mr-2 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                    详细分享
+                  </h4>
+                </div>
+                
+                <div className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 p-4 rounded-lg border border-cyan-500/20">
+                  <div className="space-y-3">
+                    {talkPoints.map((point, pointIndex) => (
+                      <motion.div
+                        key={pointIndex}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: pointIndex * 0.1 }}
+                        className="flex items-start gap-3"
+                      >
+                        <span className="flex-shrink-0 w-2 h-2 bg-cyan-400 rounded-full mt-2 shadow-[0_0_8px_rgba(6,182,212,0.5)]"></span>
+                        <p className="text-gray-300 leading-relaxed">
+                          {point}
+                        </p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          );
+        })}
       </AnimatePresence>
 
       {/* 分页控制 */}
