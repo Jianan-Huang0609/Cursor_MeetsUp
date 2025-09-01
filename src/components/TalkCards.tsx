@@ -67,26 +67,34 @@ export default function TalkCards({ speakers, selectedSpeaker }: TalkCardsProps)
               transition={{ duration: 0.3, delay: index * 0.1 }}
               className="space-y-6"
             >
-              {/* 嘉宾信息头部 */}
-              <div className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 p-4 rounded-lg border border-cyan-500/20">
-                <div className="flex items-center justify-between">
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-100 mb-1">
-                      {speaker.name}
-                    </h3>
-                    <p className="text-gray-400">{speaker.role}</p>
-                  </div>
-                  <div className="flex gap-2">
-                    {speaker.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 text-xs font-medium text-cyan-400 
-                                 bg-cyan-500/20 rounded-full border border-cyan-500/30"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+              {/* 嘉宾信息头部 - 重新布局 */}
+              <div className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 p-6 rounded-lg border border-cyan-500/20">
+                {/* 第一行：嘉宾姓名 */}
+                <div className="mb-3">
+                  <h3 className="text-2xl font-bold text-gray-100">
+                    {speaker.name}
+                  </h3>
+                </div>
+                
+                {/* 第二行：嘉宾介绍 */}
+                <div className="mb-4">
+                  <p className="text-lg text-gray-300 leading-relaxed">
+                    {speaker.role}
+                  </p>
+                </div>
+                
+                {/* 第三行：标签 */}
+                <div className="flex flex-wrap gap-2">
+                  {speaker.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1.5 text-sm font-medium text-cyan-400 
+                               bg-cyan-500/20 rounded-full border border-cyan-500/30
+                               hover:bg-cyan-500/30 transition-colors duration-200"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
               

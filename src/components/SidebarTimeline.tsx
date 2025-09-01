@@ -1,75 +1,39 @@
-import { useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Speaker } from '../lib/types';
 
 interface SidebarTimelineProps {
   speakers: Speaker[];
-  selected: string | null;
-  onSelect: (id: string | null) => void;
+  selectedSpeaker: string | null;
+  onSpeakerSelect: (speakerId: string) => void;
 }
 
-export default function SidebarTimeline({ speakers, selected, onSelect }: SidebarTimelineProps) {
-  const timelineRef = useRef<HTMLDivElement>(null);
-  const lineRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (selected && timelineRef.current) {
-      const selectedElement = timelineRef.current.querySelector(`[data-id="${selected}"]`);
-      if (selectedElement) {
-        selectedElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    }
-  }, [selected]);
-
-  // 动态计算时间线的高度
-  useEffect(() => {
-    if (lineRef.current && timelineRef.current) {
-      const timeline = timelineRef.current;
-      const points = timeline.querySelectorAll('.timeline-point');
-      if (points.length > 0) {
-        const firstPoint = points[0];
-        const lastPoint = points[points.length - 1];
-        const distance = lastPoint.getBoundingClientRect().bottom - firstPoint.getBoundingClientRect().top;
-        lineRef.current.style.height = `${distance}px`;
-      }
-    }
-  }, [speakers.length]);
-
+export default function SidebarTimeline({ speakers, selectedSpeaker, onSpeakerSelect }: SidebarTimelineProps) {
   return (
-    <div className="relative" ref={timelineRef}>
+    <div className="h-full overflow-y-auto">
       <div className="space-y-6">
-        {/* 背景时间线 */}
-        <div
-          ref={lineRef}
-          className="absolute left-[52px] w-1 bg-gradient-to-b from-cyan-400 via-blue-500 to-cyan-400 shadow-[0_0_8px_rgba(6,182,212,0.5)]"
-          style={{ top: '60px' }}
-        />
-
         {speakers.map((speaker, index) => {
-          const isSelected = speaker.id === selected;
-          const date = new Date("2025-08-16");
-          date.setHours(9 + index * 2);
-
+          const isSelected = selectedSpeaker === speaker.id;
+          const date = new Date();
+          date.setHours(14 + index, 0, 0, 0); // 从下午2点开始，每个嘉宾间隔1小时
+          
           return (
             <motion.div
               key={speaker.id}
-              data-id={speaker.id}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ 
-                opacity: 1, 
-                x: 0,
-                scale: isSelected ? 1.02 : 1
-              }}
-              whileHover={{ scale: isSelected ? 1.02 : 1.01 }}
-              transition={{ 
-                duration: 0.3,
-                type: "spring",
-                stiffness: 500,
-                damping: 30
-              }}
-              className={`group relative cursor-pointer`}
-              onClick={() => onSelect(speaker.id === selected ? null : speaker.id)}
+              className="relative cursor-pointer"
+              onClick={() => onSpeakerSelect(speaker.id)}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
+              {/* 连接线 */}
+              {index < speakers.length - 1 && (
+                <motion.div
+                  className="absolute left-4 top-8 w-0.5 h-16 bg-gradient-to-b from-gray-600 to-gray-800 z-10"
+                  animate={{
+                    backgroundColor: isSelected ? 'rgba(6, 182, 212, 0.5)' : 'rgba(75, 85, 99, 0.5)'
+                  }}
+                />
+              )}
+
               {/* 时间和点 */}
               <div className="flex gap-4 items-start">
                 <div className="flex flex-col items-center">
@@ -117,7 +81,7 @@ export default function SidebarTimeline({ speakers, selected, onSelect }: Sideba
                     <p className="text-sm text-gray-400 mb-3">{speaker.role}</p>
                     
                     {/* 标签云 */}
-                    <div className="flex flex-wrap gap-1.5 mb-3">
+                    <div className="flex flex-wrap gap-1.5">
                       {speaker.tags.map(tag => (
                         <motion.span
                           key={tag}
@@ -131,22 +95,6 @@ export default function SidebarTimeline({ speakers, selected, onSelect }: Sideba
                         </motion.span>
                       ))}
                     </div>
-
-                    {/* 一句话总结 */}
-                    <AnimatePresence>
-                      {isSelected && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: 'auto' }}
-                          exit={{ opacity: 0, height: 0 }}
-                          className="mt-3 p-3 bg-gray-800/50 rounded-lg border border-cyan-500/30 shadow-[0_0_10px_rgba(6,182,212,0.2)]"
-                        >
-                          <p className="text-sm text-gray-300 leading-relaxed">
-                            {speaker.talk.one_liner}
-                          </p>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
 
                     {/* 选中状态指示器 */}
                     <AnimatePresence>
