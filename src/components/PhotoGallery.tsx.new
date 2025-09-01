@@ -1,0 +1,157 @@
+import { useState, useEffect } from 'react';
+import type { Album } from '../lib/types';
+
+interface PhotoGalleryProps {
+  albums: Album[];
+}
+
+export default function PhotoGallery({ albums }: PhotoGalleryProps) {
+  const [activeAlbum, setActiveAlbum] = useState(albums[0]?.id);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const currentAlbum = albums.find(a => a.id === activeAlbum);
+  const images = currentAlbum?.images || [];
+
+  // 键盘导航
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (!selectedImage) return;
+
+      if (e.key === 'Escape') {
+        setSelectedImage(null);
+      } else if (e.key === 'ArrowLeft') {
+        setCurrentImageIndex((prev) => 
+          prev > 0 ? prev - 1 : images.length - 1
+        );
+      } else if (e.key === 'ArrowRight') {
+        setCurrentImageIndex((prev) => 
+          prev < images.length - 1 ? prev + 1 : 0
+        );
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [selectedImage, images]);
+
+  // 打开图片预览
+  const openPreview = (image: string, index: number) => {
+    setSelectedImage(image);
+    setCurrentImageIndex(index);
+  };
+
+  return (
+    <div className="p-6">
+      {albums.length > 0 ? (
+        <div className="space-y-6">
+          {/* 相册头部 */}
+          <div className="flex justify-between items-center">
+            <h3 className="text-base font-medium text-gray-900">现场照片</h3>
+            {albums.length > 1 && (
+              <div className="flex gap-2">
+                {albums.map((album) => (
+                  <button
+                    key={album.id}
+                    onClick={() => {
+                      setActiveAlbum(album.id);
+                      setSelectedImage(null);
+                    }}
+                    className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors
+                      ${album.id === activeAlbum
+                        ? 'bg-blue-100 text-blue-600'
+                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                      }`}
+                  >
+                    {album.title}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+          
+          {/* 照片网格 */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {images.map((image, index) => (
+              <div
+                key={index}
+                onClick={() => openPreview(image, index)}
+                className="aspect-video bg-gray-50 rounded-lg overflow-hidden
+                         cursor-pointer group relative"
+              >
+                {image ? (
+                  <>
+                    <img
+                      src={image}
+                      alt={`照片 ${index + 1}`}
+                      className="w-full h-full object-cover transition-transform
+                               group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-0 
+                                   group-hover:bg-opacity-20 transition-opacity" />
+                  </>
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center 
+                                 text-gray-400">
+                    暂无图片
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div className="text-center py-12 text-gray-500">
+          暂无照片
+        </div>
+      )}
+
+      {/* 图片预览模态框 */}
+      {selectedImage && (
+        <div className="fixed inset-0 bg-black bg-opacity-95 z-50 flex items-center justify-center"
+             onClick={() => setSelectedImage(null)}
+        >
+          <div className="relative max-w-5xl w-full mx-4">
+            <img
+              src={images[currentImageIndex]}
+              alt={`预览图片 ${currentImageIndex + 1}`}
+              className="w-full h-auto max-h-[85vh] object-contain"
+            />
+            
+            {/* 导航按钮 */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setCurrentImageIndex(prev => prev > 0 ? prev - 1 : images.length - 1);
+              }}
+              className="absolute left-4 top-1/2 -translate-y-1/2
+                         bg-white/20 hover:bg-white/40 p-3 rounded-full
+                         text-white/90 transition-colors"
+            >
+              ←
+            </button>
+            
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setCurrentImageIndex(prev => prev < images.length - 1 ? prev + 1 : 0);
+              }}
+              className="absolute right-4 top-1/2 -translate-y-1/2
+                         bg-white/20 hover:bg-white/40 p-3 rounded-full
+                         text-white/90 transition-colors"
+            >
+              →
+            </button>
+
+            {/* 计数器 */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2
+                           bg-black/50 text-white/90 px-4 py-2 rounded-full text-sm">
+              {currentImageIndex + 1} / {images.length}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

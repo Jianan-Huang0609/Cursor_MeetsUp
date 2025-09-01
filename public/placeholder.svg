@@ -1,0 +1,8 @@
+<svg width="200" height="150" viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="150" fill="#F3F4F6"/>
+  <path d="M60 50C60 44.4772 64.4772 40 70 40H130C135.523 40 140 44.4772 140 50V100C140 105.523 135.523 110 130 110H70C64.4772 110 60 105.523 60 100V50Z" fill="#E5E7EB"/>
+  <path d="M70 60L90 80L110 60L130 80V100C130 105.523 125.523 110 120 110H80C74.4772 110 70 105.523 70 100V60Z" fill="#D1D5DB"/>
+  <circle cx="85" cy="75" r="8" fill="#9CA3AF"/>
+  <path d="M70 110L90 90L110 110" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="100" y="130" text-anchor="middle" fill="#6B7280" font-family="Arial, sans-serif" font-size="12">图片加载失败</text>
+</svg>
