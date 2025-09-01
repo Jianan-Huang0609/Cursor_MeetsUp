@@ -47,7 +47,6 @@ jobs:
           pnpm run build
           echo "Build completed successfully"
           ls -la dist/
-          cat dist/index.html
           
       - name: Setup Pages
         uses: actions/configure-pages@v4

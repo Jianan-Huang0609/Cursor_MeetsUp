@@ -5,4 +5,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: '/Cursor_MeetsUp/',
   plugins: [react()],
+  build: {
+    outDir: 'dist',
+    sourcemap: false,
+  }
 })
