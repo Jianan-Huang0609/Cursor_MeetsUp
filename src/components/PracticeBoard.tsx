@@ -48,7 +48,7 @@ export default function PracticeBoard({ speakers, selectedSpeaker }: PracticeBoa
       <div className="flex justify-between items-center">
         <div>
           <h2 className="text-lg font-semibold text-gray-100 flex items-center">
-            <svg className="w-5 h-5 mr-2 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-5 h-5 mr-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
             </svg>
             感悟总结
@@ -65,7 +65,7 @@ export default function PracticeBoard({ speakers, selectedSpeaker }: PracticeBoa
             ${
               copiedTimeout
                 ? 'bg-green-500 text-white shadow-[0_0_15px_rgba(34,197,94,0.5)]'
-                : 'bg-gradient-to-r from-purple-500 to-indigo-500 text-white hover:from-purple-600 hover:to-indigo-600 shadow-[0_0_15px_rgba(147,51,234,0.3)]'
+                : 'bg-gradient-to-r from-white/20 to-white/30 text-white hover:from-white/30 hover:to-white/40 shadow-[0_0_15px_rgba(255,255,255,0.3)]'
             }`}
         >
           {copiedTimeout ? (
@@ -95,14 +95,14 @@ export default function PracticeBoard({ speakers, selectedSpeaker }: PracticeBoa
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: speakerIndex * 0.1 }}
-            className="bg-gradient-to-r from-purple-500/10 to-indigo-500/10 rounded-xl border border-purple-500/20 overflow-hidden"
+            className="bg-gradient-to-r from-white/5 to-white/10 rounded-xl border border-white/20 overflow-hidden"
           >
             {/* 分享者信息 */}
-            <div className="bg-gradient-to-r from-purple-500/20 to-indigo-500/20 px-6 py-4 border-b border-purple-500/30">
+            <div className="bg-gradient-to-r from-white/10 to-white/20 px-6 py-4 border-b border-white/30">
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-100 flex items-center">
-                    <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full flex items-center justify-center mr-3 shadow-[0_0_10px_rgba(147,51,234,0.5)]">
+                    <div className="w-8 h-8 bg-gradient-to-r from-white/20 to-white/30 rounded-full flex items-center justify-center mr-3 shadow-[0_0_10px_rgba(255,255,255,0.5)]">
                       <span className="text-white font-semibold text-sm">
                         {speaker.name.charAt(0)}
                       </span>
@@ -117,7 +117,7 @@ export default function PracticeBoard({ speakers, selectedSpeaker }: PracticeBoa
             {/* 个人实践 */}
             {speaker.personal_practice.length > 0 && (
               <div className="p-6">
-                <h4 className="text-md font-semibold text-purple-400 mb-3 flex items-center">
+                <h4 className="text-md font-semibold text-white mb-3 flex items-center">
                   <span className="mr-2">🙋‍</span>
                   个人实践
                 </h4>
@@ -128,9 +128,9 @@ export default function PracticeBoard({ speakers, selectedSpeaker }: PracticeBoa
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
-                      className="flex items-start gap-3 p-3 bg-purple-500/10 rounded-lg hover:bg-purple-500/20 transition-colors border border-purple-500/20"
+                      className="flex items-start gap-3 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-colors border border-white/20"
                     >
-                      <span className="flex-shrink-0 w-6 h-6 bg-purple-500/30 text-purple-300 rounded-full flex items-center justify-center text-sm font-semibold">
+                      <span className="flex-shrink-0 w-6 h-6 bg-white/30 text-white rounded-full flex items-center justify-center text-sm font-semibold">
                         {index + 1}
                       </span>
                       <span className="text-gray-300 leading-relaxed">
@@ -144,8 +144,8 @@ export default function PracticeBoard({ speakers, selectedSpeaker }: PracticeBoa
 
             {/* 个人开发 */}
             {speaker.personal_development.length > 0 && (
-              <div className="p-6 border-t border-purple-500/20">
-                <h4 className="text-md font-semibold text-indigo-400 mb-3 flex items-center">
+              <div className="p-6 border-t border-white/20">
+                <h4 className="text-md font-semibold text-white mb-3 flex items-center">
                   <span className="mr-2">💡</span>
                   个人开发
                 </h4>
@@ -156,9 +156,9 @@ export default function PracticeBoard({ speakers, selectedSpeaker }: PracticeBoa
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
-                      className="flex items-start gap-3 p-3 bg-indigo-500/10 rounded-lg hover:bg-indigo-500/20 transition-colors border border-indigo-500/20"
+                      className="flex items-start gap-3 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-colors border border-white/20"
                     >
-                      <span className="flex-shrink-0 w-6 h-6 bg-indigo-500/30 text-indigo-300 rounded-full flex items-center justify-center text-sm font-semibold">
+                      <span className="flex-shrink-0 w-6 h-6 bg-white/30 text-white rounded-full flex items-center justify-center text-sm font-semibold">
                         {index + 1}
                       </span>
                       <span className="text-gray-300 leading-relaxed">
@@ -173,8 +173,8 @@ export default function PracticeBoard({ speakers, selectedSpeaker }: PracticeBoa
             {/* 空状态 */}
             {speaker.personal_practice.length === 0 && speaker.personal_development.length === 0 && (
               <div className="p-6 text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-500/20 to-indigo-500/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-purple-500/30">
-                  <svg className="w-8 h-8 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="w-16 h-16 bg-gradient-to-r from-white/10 to-white/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-white/30">
+                  <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                   </svg>
                 </div>

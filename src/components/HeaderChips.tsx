@@ -17,23 +17,23 @@ export default function HeaderChips({ speakers, selected, onSelect, viewMode, on
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="flex items-center space-x-2 px-3 py-1.5 bg-cyan-500/20 rounded-full border border-cyan-500/30"
+          className="flex items-center space-x-2 px-3 py-1.5 bg-white/10 rounded-full border border-white/20"
         >
-          <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse shadow-[0_0_8px_rgba(6,182,212,0.8)]"></div>
-          <span className="text-sm font-medium text-cyan-300">2025-08-16</span>
+          <div className="w-2 h-2 bg-white rounded-full animate-pulse shadow-[0_0_8px_rgba(255,255,255,0.8)]"></div>
+          <span className="text-sm font-medium text-white">2025-08-16</span>
         </motion.div>
         
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.1 }}
-          className="flex items-center space-x-2 px-3 py-1.5 bg-green-500/20 rounded-full border border-green-500/30"
+          className="flex items-center space-x-2 px-3 py-1.5 bg-white/10 rounded-full border border-white/20"
         >
-          <svg className="w-4 h-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
-          <span className="text-sm font-medium text-green-300">浦东软件园</span>
+          <span className="text-sm font-medium text-white">浦东软件园</span>
         </motion.div>
       </div>
 
@@ -48,7 +48,7 @@ export default function HeaderChips({ speakers, selected, onSelect, viewMode, on
           onClick={() => onViewModeChange('filter')}
           className={`flex items-center space-x-2 px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-200 ${
             viewMode === 'filter'
-              ? 'bg-gray-700 text-cyan-400 shadow-[0_0_10px_rgba(6,182,212,0.3)]'
+              ? 'bg-gray-700 text-white shadow-[0_0_10px_rgba(255,255,255,0.3)]'
               : 'text-gray-400 hover:text-gray-200'
           }`}
         >
@@ -62,7 +62,7 @@ export default function HeaderChips({ speakers, selected, onSelect, viewMode, on
           onClick={() => onViewModeChange('jump')}
           className={`flex items-center space-x-2 px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-200 ${
             viewMode === 'jump'
-              ? 'bg-gray-700 text-cyan-400 shadow-[0_0_10px_rgba(6,182,212,0.3)]'
+              ? 'bg-gray-700 text-white shadow-[0_0_10px_rgba(255,255,255,0.3)]'
               : 'text-gray-400 hover:text-gray-200'
           }`}
         >
@@ -84,7 +84,7 @@ export default function HeaderChips({ speakers, selected, onSelect, viewMode, on
             className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200
               ${
                 speaker.id === selected
-                  ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-[0_0_15px_rgba(6,182,212,0.5)] border border-cyan-400/50'
+                  ? 'bg-gradient-to-r from-white/20 to-white/30 text-white shadow-[0_0_15px_rgba(255,255,255,0.5)] border border-white/50'
                   : 'bg-gray-800 text-gray-300 hover:bg-gray-700 border border-gray-600 hover:border-gray-500'
               }`}
           >
@@ -98,7 +98,7 @@ export default function HeaderChips({ speakers, selected, onSelect, viewMode, on
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.3 }}
-        className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-all duration-200 shadow-[0_0_15px_rgba(6,182,212,0.3)] hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] border border-cyan-400/30"
+        className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-white/20 to-white/30 text-white rounded-lg hover:from-white/30 hover:to-white/40 transition-all duration-200 shadow-[0_0_15px_rgba(255,255,255,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.5)] border border-white/30"
         onClick={() => {
           if (navigator.share) {
             navigator.share({

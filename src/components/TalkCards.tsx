@@ -88,9 +88,9 @@ export default function TalkCards({ speakers, selectedSpeaker }: TalkCardsProps)
                   {speaker.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1.5 text-sm font-medium text-pink-300 
-                               bg-pink-500/20 rounded-full border border-pink-500/30
-                               hover:bg-pink-500/30 transition-colors duration-200"
+                      className="px-3 py-1.5 text-sm font-medium text-white 
+                               bg-white/10 rounded-full border border-white/20
+                               hover:bg-white/20 transition-colors duration-200"
                     >
                       {tag}
                     </span>
@@ -100,7 +100,7 @@ export default function TalkCards({ speakers, selectedSpeaker }: TalkCardsProps)
               
               {/* 一句话总结 */}
               <div className="bg-gray-900/50 p-4 rounded-xl border border-gray-800 shadow-lg backdrop-blur-sm">
-                <h4 className="text-sm font-semibold text-pink-400 mb-2 flex items-center">
+                <h4 className="text-sm font-semibold text-white mb-2 flex items-center">
                   <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
@@ -112,8 +112,8 @@ export default function TalkCards({ speakers, selectedSpeaker }: TalkCardsProps)
               {/* 详细分享内容 */}
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <h4 className="text-lg font-semibold text-gray-100 flex items-center">
-                    <svg className="w-5 h-5 mr-2 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <h4 className="text-lg font-semibold text-white flex items-center">
+                    <svg className="w-5 h-5 mr-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                     </svg>
                     详细分享
@@ -130,7 +130,7 @@ export default function TalkCards({ speakers, selectedSpeaker }: TalkCardsProps)
                         transition={{ delay: pointIndex * 0.1 }}
                         className="flex items-start gap-3"
                       >
-                        <span className="flex-shrink-0 w-2 h-2 bg-pink-400 rounded-full mt-2 shadow-lg"></span>
+                        <span className="flex-shrink-0 w-2 h-2 bg-white rounded-full mt-2 shadow-lg"></span>
                         <p className="text-gray-300 leading-relaxed">
                           {point}
                         </p>
@@ -165,7 +165,7 @@ export default function TalkCards({ speakers, selectedSpeaker }: TalkCardsProps)
                 onClick={() => setCurrentPage(i)}
                 className={`w-2 h-2 rounded-full transition-colors duration-200 ${
                   i === currentPage 
-                    ? 'bg-pink-500' 
+                    ? 'bg-white' 
                     : 'bg-gray-600 hover:bg-gray-500'
                 }`}
               />

@@ -10,8 +10,8 @@ interface SidebarTimelineProps {
 export default function SidebarTimeline({ speakers, selectedSpeaker, onSpeakerSelect }: SidebarTimelineProps) {
   return (
     <div className="relative">
-      {/* 时间线连接线 - 光感紫粉渐变 */}
-      <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-pink-500 via-purple-500 to-pink-500 shadow-lg" />
+      {/* 时间线连接线 - 白色渐变 */}
+      <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-white via-gray-300 to-white shadow-lg" />
       
       <div className="space-y-8">
         {speakers.map((speaker, index) => {
@@ -34,15 +34,15 @@ export default function SidebarTimeline({ speakers, selectedSpeaker, onSpeakerSe
                   <motion.div
                     className="w-4 h-4 rounded-full border-3 relative z-10 shadow-lg"
                     animate={{
-                      backgroundColor: isSelected ? '#ec4899' : '#1f2937',
-                      borderColor: isSelected ? '#ec4899' : '#4b5563',
+                      backgroundColor: isSelected ? '#ffffff' : '#1f2937',
+                      borderColor: isSelected ? '#ffffff' : '#4b5563',
                       scale: isSelected ? 1.3 : 1,
-                      boxShadow: isSelected ? '0 0 0 4px rgba(236, 72, 153, 0.3), 0 0 20px rgba(236, 72, 153, 0.5)' : '0 0 0 0px rgba(236, 72, 153, 0)'
+                      boxShadow: isSelected ? '0 0 0 4px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.5)' : '0 0 0 0px rgba(255, 255, 255, 0)'
                     }}
                     whileHover={{
                       scale: isSelected ? 1.3 : 1.2,
-                      borderColor: '#ec4899',
-                      boxShadow: isSelected ? '0 0 0 4px rgba(236, 72, 153, 0.3), 0 0 20px rgba(236, 72, 153, 0.5)' : '0 0 0 2px rgba(236, 72, 153, 0.3), 0 0 10px rgba(236, 72, 153, 0.3)'
+                      borderColor: '#ffffff',
+                      boxShadow: isSelected ? '0 0 0 4px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.5)' : '0 0 0 2px rgba(255, 255, 255, 0.3), 0 0 10px rgba(255, 255, 255, 0.3)'
                     }}
                   />
                   
@@ -50,7 +50,7 @@ export default function SidebarTimeline({ speakers, selectedSpeaker, onSpeakerSe
                   <motion.div 
                     className="text-sm text-gray-400 mt-3 font-semibold"
                     animate={{ 
-                      color: isSelected ? '#ec4899' : '#6b7280',
+                      color: isSelected ? '#ffffff' : '#6b7280',
                       fontWeight: isSelected ? '700' : '600'
                     }}
                   >
@@ -65,19 +65,19 @@ export default function SidebarTimeline({ speakers, selectedSpeaker, onSpeakerSe
                 <motion.div 
                   className="flex-1 min-w-0"
                   animate={{
-                    backgroundColor: isSelected ? 'rgba(236, 72, 153, 0.1)' : 'transparent'
+                    backgroundColor: isSelected ? 'rgba(255, 255, 255, 0.1)' : 'transparent'
                   }}
                 >
-                  <div className={`p-5 rounded-xl border transition-all duration-300 ${
+                  <div                   className={`p-5 rounded-xl border transition-all duration-300 ${
                     isSelected 
-                      ? 'border-pink-500/50 bg-gray-900/80 shadow-xl shadow-pink-500/20 backdrop-blur-sm' 
+                      ? 'border-white/50 bg-gray-900/80 shadow-xl shadow-white/20 backdrop-blur-sm' 
                       : 'border-transparent hover:border-gray-600 hover:bg-gray-900/50'
                   }`}>
                     {/* 嘉宾姓名 */}
                     <motion.h3
                       className="text-lg font-bold mb-2 truncate"
                       animate={{
-                        color: isSelected ? '#ec4899' : '#f3f4f6'
+                        color: isSelected ? '#ffffff' : '#f3f4f6'
                       }}
                     >
                       {speaker.name}
@@ -95,8 +95,8 @@ export default function SidebarTimeline({ speakers, selectedSpeaker, onSpeakerSe
                           key={tag}
                           className="px-3 py-1.5 text-xs rounded-lg font-semibold"
                           animate={{
-                            backgroundColor: isSelected ? 'rgba(236, 72, 153, 0.2)' : 'rgba(75, 85, 99, 0.3)',
-                            color: isSelected ? '#f9a8d4' : '#d1d5db'
+                            backgroundColor: isSelected ? 'rgba(255, 255, 255, 0.2)' : 'rgba(75, 85, 99, 0.3)',
+                            color: isSelected ? '#ffffff' : '#d1d5db'
                           }}
                         >
                           {tag}
@@ -116,7 +116,7 @@ export default function SidebarTimeline({ speakers, selectedSpeaker, onSpeakerSe
                           initial={{ opacity: 0, scale: 0.8 }}
                           animate={{ opacity: 1, scale: 1 }}
                           exit={{ opacity: 0, scale: 0.8 }}
-                          className="absolute top-3 right-3 w-3 h-3 bg-pink-500 rounded-full shadow-lg"
+                          className="absolute top-3 right-3 w-3 h-3 bg-white rounded-full shadow-lg"
                         />
                       )}
                     </AnimatePresence>
