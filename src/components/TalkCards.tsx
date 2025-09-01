@@ -67,8 +67,8 @@ export default function TalkCards({ speakers, selectedSpeaker }: TalkCardsProps)
               transition={{ duration: 0.3, delay: index * 0.1 }}
               className="space-y-6"
             >
-              {/* 嘉宾信息头部 - 重新布局 */}
-              <div className="bg-gray-700/50 p-6 rounded-xl border border-gray-600 shadow-lg">
+              {/* 嘉宾信息头部 - 光感紫粉渐变 */}
+              <div className="bg-gray-900/50 p-6 rounded-xl border border-gray-800 shadow-lg backdrop-blur-sm">
                 {/* 第一行：嘉宾姓名 */}
                 <div className="mb-3">
                   <h3 className="text-2xl font-bold text-gray-100">
@@ -88,9 +88,9 @@ export default function TalkCards({ speakers, selectedSpeaker }: TalkCardsProps)
                   {speaker.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1.5 text-sm font-medium text-blue-300 
-                               bg-blue-600/20 rounded-full border border-blue-500/30
-                               hover:bg-blue-600/30 transition-colors duration-200"
+                      className="px-3 py-1.5 text-sm font-medium text-pink-300 
+                               bg-pink-500/20 rounded-full border border-pink-500/30
+                               hover:bg-pink-500/30 transition-colors duration-200"
                     >
                       {tag}
                     </span>
@@ -99,8 +99,8 @@ export default function TalkCards({ speakers, selectedSpeaker }: TalkCardsProps)
               </div>
               
               {/* 一句话总结 */}
-              <div className="bg-gray-700/50 p-4 rounded-xl border border-gray-600 shadow-lg">
-                <h4 className="text-sm font-semibold text-blue-400 mb-2 flex items-center">
+              <div className="bg-gray-900/50 p-4 rounded-xl border border-gray-800 shadow-lg backdrop-blur-sm">
+                <h4 className="text-sm font-semibold text-pink-400 mb-2 flex items-center">
                   <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
@@ -113,14 +113,14 @@ export default function TalkCards({ speakers, selectedSpeaker }: TalkCardsProps)
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <h4 className="text-lg font-semibold text-gray-100 flex items-center">
-                    <svg className="w-5 h-5 mr-2 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5 mr-2 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                     </svg>
                     详细分享
                   </h4>
                 </div>
                 
-                <div className="bg-gray-700/50 p-4 rounded-xl border border-gray-600 shadow-lg">
+                <div className="bg-gray-900/50 p-4 rounded-xl border border-gray-800 shadow-lg backdrop-blur-sm">
                   <div className="space-y-3">
                     {talkPoints.map((point, pointIndex) => (
                       <motion.div
@@ -130,7 +130,7 @@ export default function TalkCards({ speakers, selectedSpeaker }: TalkCardsProps)
                         transition={{ delay: pointIndex * 0.1 }}
                         className="flex items-start gap-3"
                       >
-                        <span className="flex-shrink-0 w-2 h-2 bg-blue-400 rounded-full mt-2 shadow-lg"></span>
+                        <span className="flex-shrink-0 w-2 h-2 bg-pink-400 rounded-full mt-2 shadow-lg"></span>
                         <p className="text-gray-300 leading-relaxed">
                           {point}
                         </p>
@@ -150,7 +150,7 @@ export default function TalkCards({ speakers, selectedSpeaker }: TalkCardsProps)
           <button
             onClick={() => setCurrentPage(prev => Math.max(0, prev - 1))}
             disabled={currentPage === 0}
-            className="flex items-center space-x-2 px-4 py-2 text-sm font-medium text-gray-300 bg-gray-700 rounded-lg hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed border border-gray-600"
+            className="flex items-center space-x-2 px-4 py-2 text-sm font-medium text-gray-300 bg-gray-800 rounded-lg hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed border border-gray-700"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -165,7 +165,7 @@ export default function TalkCards({ speakers, selectedSpeaker }: TalkCardsProps)
                 onClick={() => setCurrentPage(i)}
                 className={`w-2 h-2 rounded-full transition-colors duration-200 ${
                   i === currentPage 
-                    ? 'bg-blue-500' 
+                    ? 'bg-pink-500' 
                     : 'bg-gray-600 hover:bg-gray-500'
                 }`}
               />
@@ -175,7 +175,7 @@ export default function TalkCards({ speakers, selectedSpeaker }: TalkCardsProps)
           <button
             onClick={() => setCurrentPage(prev => Math.min(totalPages - 1, prev + 1))}
             disabled={currentPage === totalPages - 1}
-            className="flex items-center space-x-2 px-4 py-2 text-sm font-medium text-gray-300 bg-gray-700 rounded-lg hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed border border-gray-600"
+            className="flex items-center space-x-2 px-4 py-2 text-sm font-medium text-gray-300 bg-gray-800 rounded-lg hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed border border-gray-700"
           >
             <span>下一个</span>
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

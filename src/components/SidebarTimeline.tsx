@@ -10,8 +10,8 @@ interface SidebarTimelineProps {
 export default function SidebarTimeline({ speakers, selectedSpeaker, onSpeakerSelect }: SidebarTimelineProps) {
   return (
     <div className="relative">
-      {/* 时间线连接线 - 更长更明显 */}
-      <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-600 via-purple-600 to-blue-600 shadow-lg" />
+      {/* 时间线连接线 - 光感紫粉渐变 */}
+      <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-pink-500 via-purple-500 to-pink-500 shadow-lg" />
       
       <div className="space-y-8">
         {speakers.map((speaker, index) => {
@@ -29,20 +29,20 @@ export default function SidebarTimeline({ speakers, selectedSpeaker, onSpeakerSe
             >
               {/* 时间线节点 */}
               <div className="flex items-start gap-6">
-                {/* 时间点 - 更大更明显 */}
+                {/* 时间点 - 光感紫粉渐变 */}
                 <div className="flex flex-col items-center flex-shrink-0">
                   <motion.div
                     className="w-4 h-4 rounded-full border-3 relative z-10 shadow-lg"
                     animate={{
-                      backgroundColor: isSelected ? '#3b82f6' : '#1f2937',
-                      borderColor: isSelected ? '#3b82f6' : '#4b5563',
+                      backgroundColor: isSelected ? '#ec4899' : '#1f2937',
+                      borderColor: isSelected ? '#ec4899' : '#4b5563',
                       scale: isSelected ? 1.3 : 1,
-                      boxShadow: isSelected ? '0 0 0 4px rgba(59, 130, 246, 0.3), 0 0 20px rgba(59, 130, 246, 0.5)' : '0 0 0 0px rgba(59, 130, 246, 0)'
+                      boxShadow: isSelected ? '0 0 0 4px rgba(236, 72, 153, 0.3), 0 0 20px rgba(236, 72, 153, 0.5)' : '0 0 0 0px rgba(236, 72, 153, 0)'
                     }}
                     whileHover={{
                       scale: isSelected ? 1.3 : 1.2,
-                      borderColor: '#3b82f6',
-                      boxShadow: isSelected ? '0 0 0 4px rgba(59, 130, 246, 0.3), 0 0 20px rgba(59, 130, 246, 0.5)' : '0 0 0 2px rgba(59, 130, 246, 0.3), 0 0 10px rgba(59, 130, 246, 0.3)'
+                      borderColor: '#ec4899',
+                      boxShadow: isSelected ? '0 0 0 4px rgba(236, 72, 153, 0.3), 0 0 20px rgba(236, 72, 153, 0.5)' : '0 0 0 2px rgba(236, 72, 153, 0.3), 0 0 10px rgba(236, 72, 153, 0.3)'
                     }}
                   />
                   
@@ -50,7 +50,7 @@ export default function SidebarTimeline({ speakers, selectedSpeaker, onSpeakerSe
                   <motion.div 
                     className="text-sm text-gray-400 mt-3 font-semibold"
                     animate={{ 
-                      color: isSelected ? '#3b82f6' : '#6b7280',
+                      color: isSelected ? '#ec4899' : '#6b7280',
                       fontWeight: isSelected ? '700' : '600'
                     }}
                   >
@@ -61,23 +61,23 @@ export default function SidebarTimeline({ speakers, selectedSpeaker, onSpeakerSe
                   </motion.div>
                 </div>
 
-                {/* 内容卡片 - 更大更明显 */}
+                {/* 内容卡片 - 光感效果 */}
                 <motion.div 
                   className="flex-1 min-w-0"
                   animate={{
-                    backgroundColor: isSelected ? 'rgba(59, 130, 246, 0.1)' : 'transparent'
+                    backgroundColor: isSelected ? 'rgba(236, 72, 153, 0.1)' : 'transparent'
                   }}
                 >
                   <div className={`p-5 rounded-xl border transition-all duration-300 ${
                     isSelected 
-                      ? 'border-blue-500/50 bg-gray-800/80 shadow-xl shadow-blue-500/20' 
-                      : 'border-transparent hover:border-gray-600 hover:bg-gray-800/50'
+                      ? 'border-pink-500/50 bg-gray-900/80 shadow-xl shadow-pink-500/20 backdrop-blur-sm' 
+                      : 'border-transparent hover:border-gray-600 hover:bg-gray-900/50'
                   }`}>
                     {/* 嘉宾姓名 */}
                     <motion.h3
                       className="text-lg font-bold mb-2 truncate"
                       animate={{
-                        color: isSelected ? '#3b82f6' : '#f3f4f6'
+                        color: isSelected ? '#ec4899' : '#f3f4f6'
                       }}
                     >
                       {speaker.name}
@@ -88,22 +88,22 @@ export default function SidebarTimeline({ speakers, selectedSpeaker, onSpeakerSe
                       {speaker.role}
                     </p>
                     
-                    {/* 标签 - 更明显 */}
+                    {/* 标签 - 光感紫粉渐变 */}
                     <div className="flex flex-wrap gap-2">
                       {speaker.tags.slice(0, 3).map(tag => (
                         <motion.span
                           key={tag}
                           className="px-3 py-1.5 text-xs rounded-lg font-semibold"
                           animate={{
-                            backgroundColor: isSelected ? 'rgba(59, 130, 246, 0.2)' : 'rgba(75, 85, 99, 0.3)',
-                            color: isSelected ? '#93c5fd' : '#d1d5db'
+                            backgroundColor: isSelected ? 'rgba(236, 72, 153, 0.2)' : 'rgba(75, 85, 99, 0.3)',
+                            color: isSelected ? '#f9a8d4' : '#d1d5db'
                           }}
                         >
                           {tag}
                         </motion.span>
                       ))}
                       {speaker.tags.length > 3 && (
-                        <span className="px-3 py-1.5 text-xs text-gray-500 bg-gray-700/50 rounded-lg">
+                        <span className="px-3 py-1.5 text-xs text-gray-500 bg-gray-800/50 rounded-lg">
                           +{speaker.tags.length - 3}
                         </span>
                       )}
@@ -116,7 +116,7 @@ export default function SidebarTimeline({ speakers, selectedSpeaker, onSpeakerSe
                           initial={{ opacity: 0, scale: 0.8 }}
                           animate={{ opacity: 1, scale: 1 }}
                           exit={{ opacity: 0, scale: 0.8 }}
-                          className="absolute top-3 right-3 w-3 h-3 bg-blue-500 rounded-full shadow-lg"
+                          className="absolute top-3 right-3 w-3 h-3 bg-pink-500 rounded-full shadow-lg"
                         />
                       )}
                     </AnimatePresence>
